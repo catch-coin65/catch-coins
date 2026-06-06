@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #090d16;
+    color: #fff;
+    margin: 0;
+    padding: 10px 10px 80px 10px;
+    text-align: center;
+}
+.app-container {
+    max-width: 400px;
+    margin: 10px auto;
+    background: #111827;
+    border-radius: 24px;
+    border: 3px solid #f59e0b;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+    overflow: hidden;
+    position: relative;
+    min-height: 480px;
+}
+.app-section {
+    display: none;
+    padding: 20px 15px;
+}
+.app-section.active {
+    display: block;
+}
+h2 {
+    margin: 0 0 10px 0;
+    color: #f59e0b;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+.subtitle {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0 0 15px 0;
+}
+.game-scoreboard {
+    display: flex;
+    justify-content: space-between;
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #1e293b;
+}
+#gameCanvas {
+    background: #1f2937;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 2px solid #374151;
+}
+.btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+.btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+}
+.profile-card, .wallet-card, .rules-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    margin-top: 15px;
+}
+.profile-card p {
+    margin: 12px 0;
+    font-size: 16px;
+}
+.rank-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.bronze { background: #b45309; color: #fff; }
+.silver { background: #94a3b8; color: #000; }
+.gold { background: #eab308; color: #000; }
+.current-bal {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f59e0b;
+    margin: 15px 0;
+    text-align: center;
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 8px;
+}
+.withdraw-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+.rules-card ol {
+    padding-left: 20px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0f172a;
+    display: flex;
+    justify-content: space-around;
+    border-top: 2px solid #1e293b;
+}
+.nav-item {
+    background: none;
+    border: none;
+    color: #64748b;
+    padding: 15px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 25%;
+    transition: 0.2s;
+}
+.nav-item.active {
+    color: #f59e0b;
+    background: #1e293b;
+}
+.ad-slot-top, .ad-slot-bottom {
+    background: #111827;
+    padding: 12px;
+    margin: 10px auto;
+    max-width: 400px;
+    border: 1px dashed #374151;
+    border-radius: 10px;
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: bold;
+}
