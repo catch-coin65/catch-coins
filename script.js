@@ -167,3 +167,70 @@ const firebaseConfig = {
 };
 // फायरबेस इनिशियलाइज करने का कोड
 firebase.initializeApp(firebaseConfig);
+// Initialize secure Firebase variables
+const auth = firebase.auth();
+const database = firebase.database(); 
+
+// Secure DOM Element Selectors
+const authGateScreen = document.getElementById("auth-gate-screen");
+const mainWebsiteContent = document.getElementById("main-website-content");
+const loginButton = document.getElementById("login-btn");
+const profileName = document.getElementById("profile-name");
+const coinDisplay = document.getElementById("coin-count");
+
+// Firebase Authentication State Observer
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        console.log("User authorized session tracking active ID: " + user.uid);
+        
+        // Hide the colorful login screen overlay
+        if (authGateScreen) authGateScreen.style.display = "none";
+        if (mainWebsiteContent) mainWebsiteContent.style.display = "block";
+        
+        // Load the signed-in user's official Google dynamic identity name
+        if (profileName) profileName.innerText = user.displayName || "Player";
+        
+        // Safely fetch database saved coins for this specific account path
+        loadUserProgress(user.uid);
+    } else {
+        console.log("No active user session found. Enforcing auth screen block.");
+        if (authGateScreen) authGateScreen.style.display = "flex";
+        if (mainWebsiteContent) mainWebsiteContent.style.display = "none";
+    }
+});
+
+// Google Sign-In Event Trigger
+if (loginButton) {
+    loginButton.addEventListener("click", () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                console.log("Authentication successful.");
+            })
+            .catch((error) => {
+                console.error("Auth Engine Error Code: ", error.code);
+                alert("Authentication failed! Error details: " + error.message);
+            });
+    });
+}
+
+// Secure Data Processing Core Function
+function loadUserProgress(userId) {
+    database.ref('users/' + userId).once('value')
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                if (coinDisplay) coinDisplay.innerText = data.coins || 0;
+                console.log("Cloud synchronisation sequence completed successfully.");
+            } else {
+                // Initialize default profile parameters for first-time genuine players
+                if (coinDisplay) coinDisplay.innerText = "0";
+                database.ref('users/' + userId).set({ coins: 0 })
+                    .then(() => console.log("New cloud entry initialised successfully."))
+                    .catch((err) => console.error("Database initialization failed: ", err));
+            }
+        })
+        .catch((error) => {
+            console.error("Critical database read communication error: ", error);
+        });
+}
