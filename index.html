@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play & Earn Real Cash Online</title>
+    
+    <!-- 📡 FUTURE FIREBASE SCRIPTS SLOT -->
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 📢 AD SLOT 1: TOP ADVERTISEMENT (Adsterra Code Joins Here) -->
+    <div class="ad-slot-top" id="adsterra-top">
+        <p>▼ ADVERTISEMENT (Earn Money) ▼</p>
+    </div>
+
+    <div class="app-container">
+        
+        <!-- 🏠 1. HOME SECTION (GAME SCREEN) -->
+        <section id="home-sec" class="app-section active">
+            <h2>🪙 Catch Coins, Earn Cash!</h2>
+            <p class="subtitle">Move the basket left-right to catch falling coins.</p>
+            
+            <div class="game-scoreboard">
+                <div>Score: <span id="scoreVal">0</span></div>
+                <div>Tokens: 🪙 <span id="coinVal">0</span></div>
+            </div>
+            
+            <canvas id="gameCanvas" width="340" height="280"></canvas>
+            <button class="btn" id="startBtn">🕹️ Start Game</button>
+        </section>
+
+        <!-- 👤 2. PROFILE SECTION -->
+        <section id="profile-sec" class="app-section">
+            <h2>👤 Your Profile</h2>
+            <div class="profile-card">
+                <p><b>Gamer ID:</b> <span id="profId">GAMER_786</span></p>
+                <p><b>Total Earnings:</b> 🪙 <span id="profCoins">0</span> Tokens</p>
+                <p><b>Your Tier Rank:</b> <span id="profRank" class="rank-badge bronze">Bronze 痕</span></p>
+            </div>
+        </section>
+
+        <!-- 🎁 3. REWARD SECTION (WITHDRAW SYSTEM) -->
+        <section id="reward-sec" class="app-section">
+            <h2>🎁 Sunday Payout Rewards</h2>
+            <div class="wallet-card">
+                <h3>💰 Withdraw Wallet (UPI/Paytm)</h3>
+                <p style="font-size: 13px; color: #a1a1aa; margin: 5px 0;">Minimum Withdraw: 1,000 Tokens = ₹10</p>
+                <div class="current-bal">Your Balance: 🪙 <span id="walletBal">0</span> Tokens</div>
+                
+                <button class="btn withdraw-btn" id="withdrawBtn">💸 Click Here to Withdraw Cash</button>
+            </div>
+        </section>
+
+        <!-- 📜 4. RULES SECTION -->
+        <section id="rules-sec" class="app-section">
+            <h2>📜 Game Rules</h2>
+            <div class="rules-card">
+                <ol>
+                    <li>Every 100 points you score in the game legally adds <b>1 Real Token</b> to your profile.</li>
+                    <li>Your tier rank increases based on tokens: 1,000 tokens for <b>Silver 🥈</b> and 5,000 tokens for <b>Gold 🥇</b>.</li>
+                    <li>To withdraw cash, you must have a minimum of 1,000 tokens in your wallet.</li>
+                    <li>Click the withdraw button and enter your correct Name and UPI ID / Paytm number.</li>
+                    <li>Every <b>Sunday</b>, your hard-earned real money will be sent directly to your account manually.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 🗺️ BOTTOM NAVIGATION BAR -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="switchTab('home-sec', this)">🏠 Home</button>
+            <button class="nav-item" onclick="switchTab('profile-sec', this)">👤 Profile</button>
+            <button class="nav-item" onclick="switchTab('reward-sec', this)">🎁 Reward</button>
+            <button class="nav-item" onclick="switchTab('rules-sec', this)">📜 Rules</button>
+        </nav>
+
+    </div>
+
+    <!-- 📢 AD SLOT 2: BOTTOM ADVERTISEMENT (Adsterra Code Joins Here) -->
+    <div class="ad-slot-bottom" id="adsterra-bottom">
+        <p>▼ ADVERTISEMENT (Earn Money) ▼</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
