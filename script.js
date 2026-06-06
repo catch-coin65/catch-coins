@@ -365,4 +365,4 @@ function loadUserProgress(userId) {
         .catch((error) => {
             console.error("Critical database read communication error: ", error);
         });
-}
+
